@@ -1,0 +1,24 @@
+<?php
+    $nome = htmlspecialchars($_GET['nome']);
+    $celular = htmlspecialchars($_GET['celular']);
+    $cpf = htmlspecialchars($_GET['cpf']);
+    $cep = htmlspecialchars($_GET['cep']);
+    $email = htmlspecialchars($_GET['email']);
+    $senha = htmlspecialchars($_GET['senha']);
+
+$host = "localhost";   
+$user = "id20390860_renanbambam";
+$pass = "Yz/]t2ms(bTp-m68";
+$dbname = "id20390860_bancodedadosnovo";
+$connection = mysqli_connect($host,$user,$pass,$dbname) or die (mysql_errno(). ": " .mysql_error(). "<BR>");
+
+$query = "INSERT INTO `cliente` (`nome`, `cpf`, `cep` , `celular` , `email`, `senha`) VALUES('".$nome. "', '".$cpf. "' , '".$cep. "' , '".$celular. "' , '".$email. "' , '".$senha. "' )";
+
+echo $query;
+mysqli_query ($connection, $query) or die('Erro ao salvar');
+
+echo "<br/>";
+echo "<br/>";
+echo " SALVO - Nome: ".$nome." | CPF: " .$cpf. " | ";
+
+?>
